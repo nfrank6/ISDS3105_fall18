@@ -145,7 +145,34 @@ Respond to the following questions and push the responses to your GitHub:
    
  - Read carefully the documentation for `is.vector()`. If `is.vector(x)` retrieves `TRUE`, does it mean that `x` is an atomic vector?
 
+typeof(letters)
 
+```{Exercise one}
+family<- c('Nathanael', 'Cat Two', 'Cat Three')
+typeof(family)
 
+birth <-  c (1994,2012,2015)
+typeof(birth)
 
+age <- c (24,6,3)
+typeof(age)
 
+names(age)= family
+
+age[1]
+
+##You extract using a positive index bigger than the vector length?
+age[4]
+
+##You subset by a name that doesn't exist?
+age['Cat four']
+
+##You assign a number to position 20 of the age vector?
+age[20]= 21
+
+##Read carefully the documentation for is.vector(). If is.vector(x) retrieves TRUE, does it mean that x is an atomic vector?
+
+is.vector(family)
+is.vector(birth)
+is.vector(age)
+```
