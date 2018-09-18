@@ -28,11 +28,14 @@ However, sometimes you need to transform values before plotting. For instance, c
 
 ```{r}
 #This it the output we are looking for:
-  #ggplot(data = freqCasualties, aes(x = class, y = n, fill = gender)) + 
-  # geom_col()
+  ggplot(data = freqCasualties, aes(x = class, y = n, fill = gender)) + 
+   geom_col()
 
 #we want to plot the below chart using selfiesCasualties
 #1. Replicate the above using selfiesCasualties and geom_bar() instead of geom_col. You need to change the default stat  to 'identity'
+
+  ggplot(data = selfiesCasualties) + 
+    geom_bar( aes(x = class ,y = year , fill = gender), stat = "identity")
 
 #ggplot( data = selfiesCasualties, aes()) +
 #  geom_bar()
@@ -41,13 +44,15 @@ However, sometimes you need to transform values before plotting. For instance, c
   geom_bar(aes(x = class, y=..prop.., fill = gender, group = gender), position ='dodge')
 
 #2. Plot proportions instead of counts for both the previous charts
+  
 
 ```
 
 To plot a barchart for `selfiesCasualties`, you need to map y to the frequencies count of each `class` and `gender`. For dataset where **each row is an observation** (versus the count for each grouping level) you can use `geom_*(stat = 'count')`, which is the default for `geom_bar()`. To concude, you can view `geom_col` as a special instance of `geom_bar(... , stat='identity')`
 
 ```{r}
-
+  ggplot(data = selfiesCasualties)+
+    geom_bar(aes(x = class, y=..prop..,  fill = gender, group = gender), position = 'dodge')
 ```
 
 
